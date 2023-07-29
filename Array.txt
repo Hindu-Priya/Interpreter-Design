@@ -1,0 +1,51 @@
+BLUEPRINT clsA
+BEGIN
+
+PROC VOID reverse_array(NUMBER [] arr, NUMBER len)
+BEGIN
+
+NUMBER i
+NUMBER j
+NUMBER temp
+j := len - 1
+i := 0
+
+WHILE i < len/2
+BEGIN
+temp := arr[i]
+arr[i] := arr[j]
+
+arr[j] := temp
+i := i+1
+j := j-1
+END
+
+END
+
+END
+
+
+BEGIN
+
+NUMBER arr[10]
+NUMBER count
+
+OBJECTOF clsA objectA
+
+PRINT "enter numbers"
+count := 0
+WHILE count < 10
+BEGIN
+READ arr[count]
+count:=count+1
+END
+
+PRINT "printing given numbers"
+PRINT arr
+
+objectA.reverse_array(arr, count)
+
+PRINT "printing array after reversal"
+PRINT arr
+
+END

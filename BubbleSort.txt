@@ -1,0 +1,57 @@
+BLUEPRINT Sort
+BEGIN
+
+PROC VOID bubbleSort(NUMBER [] numbers, NUMBER size)
+BEGIN
+NUMBER j
+NUMBER temp
+size:= size - 1
+
+WHILE size > 0
+BEGIN
+
+j := 0
+WHILE j <= size - 1
+BEGIN
+
+IF numbers[j] > numbers[j + 1]
+BEGIN
+temp := numbers[j + 1]
+numbers[j + 1] := numbers[j]
+numbers[j] := temp
+END
+
+j := j + 1
+END
+size := size - 1
+END
+END
+
+
+END
+
+
+BEGIN
+
+NUMBER arr[10]
+NUMBER count
+
+OBJECTOF Sort objectA
+
+PRINT "enter numbers to sort"
+count := 0
+WHILE count < 10
+BEGIN
+READ arr[count]
+count:=count+1
+END
+
+PRINT "printing given numbers"
+PRINT arr
+
+objectA.bubbleSort(arr, count)
+
+PRINT "printing array after sort"
+PRINT arr
+
+END

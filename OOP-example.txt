@@ -1,0 +1,49 @@
+#POLYMORPHISM - METHOD OVERRIDING, METHOD OVERLOADING
+#ABSTRACTION
+
+BLUEPRINT ParentClass
+BEGIN
+
+PROC VOID test_polymorphism()
+BEGIN
+PRINT "this is test function in parent class"
+END
+
+PROC VOID test_inheritence()
+BEGIN
+PRINT "this method is in parent only"
+END
+
+NOACCESS VOID test_encapsulation()
+BEGIN
+PRINT "this should not be accessible"
+END
+
+END
+
+BLUEPRINT ChildClass CHILDOF ParentClass
+BEGIN
+
+PROC VOID test_polymorphism()
+BEGIN
+PRINT "this is test function in child class"
+END
+
+END
+
+
+
+
+BEGIN
+
+OBJECTOF ParentClass p
+OBJECTOF ChildClass c
+
+p.test_polymorphism()
+c.test_polymorphism()
+
+c.test_inheritence()
+
+p.test_encapsulation()
+
+END
